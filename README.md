@@ -1,5 +1,22 @@
 # go-ssekit
 
+## Maintenance moved to `github.com/hollis-labs/libs/ui-go`
+
+This standalone repository is retired. Maintained source and documentation are
+in [github.com/hollis-labs/libs/ui-go/ssekit](https://github.com/hollis-labs/libs/tree/ui-go%2Fv0.1.0/ui-go/ssekit), released in **`ui-go/v0.1.0`**.
+Install the replacement module:
+
+```sh
+go get github.com/hollis-labs/libs/ui-go@v0.1.0
+```
+
+Replace the `github.com/hollis-labs/go-ssekit` import prefix with
+`github.com/hollis-labs/libs/ui-go/ssekit`, retaining the package subpath. Review the replacement documentation
+for any API changes before migrating. Existing standalone tags and history remain
+available; old module pins do not automatically redirect to the new module.
+
+The documentation below describes historical standalone usage.
+
 A Server-Sent Events writer, serve loop, resumable client and test harness that never look inside the payload.
 
 Seventeen hand-written SSE writers in six applications disagree on keepalive, buffering headers, write deadlines, whether a failed flush is noticed, and which of four rules picks the resume cursor. Their ten hand-written line parsers cap events silently, flush half an event at EOF, and none of the Go clients reconnects with a cursor. This library is the one place that gets the transport right: every type carries opaque bytes, an event name and an id string, and nothing else.
